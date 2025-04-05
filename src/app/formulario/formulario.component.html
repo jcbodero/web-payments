@@ -1,0 +1,38 @@
+<h2>Formulario Básico</h2>
+
+<form (ngSubmit)="enviarFormulario()" #formRef="ngForm">
+  <label>
+    Nombre:
+    <input type="text" name="nombre" [(ngModel)]="formData.nombre" required />
+  </label>
+  <br /><br />
+
+  <label>
+    Email:
+    <input type="email" name="email" [(ngModel)]="formData.email" required />
+  </label>
+  <br /><br />
+
+  <label>
+    Contraseña:
+    <input type="password" name="password" [(ngModel)]="formData.password" required />
+  </label>
+  <br /><br />
+  <mat-slide-toggle>Toggle me!</mat-slide-toggle>
+  <mat-form-field>
+    <mat-label>Input</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Select</mat-label>
+    <mat-select>
+      <mat-option value="one">First option</mat-option>
+      <mat-option value="two">Second option</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Textarea</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>
+  <button type="submit" [disabled]="!formRef.form.valid">Enviar</button>
+</form>
