@@ -1,0 +1,38 @@
+<!-- <h2>Persons:</h2> -->
+<!-- <ul>
+  <li *ngFor="let user of persons">{{ user.email }}</li>
+</ul>
+ -->
+<div *ngIf="loading">Cargando datos...</div>
+<table mat-table [dataSource]="persons" class="mat-elevation-z8" *ngIf="!loading">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="firstname">
+      <th mat-header-cell *matHeaderCellDef> FirstName </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef> LastName </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
